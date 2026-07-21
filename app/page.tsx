@@ -1,3 +1,5 @@
+import { ContactLinks } from "./contact-links";
+
 const contactUrl = "https://t.me/Nfrtum";
 
 export default function Home() {
@@ -11,6 +13,7 @@ export default function Home() {
           <a href="#approach">Подход</a>
           <a href="#solutions">Решения</a>
           <a href="#process">Процесс</a>
+          <a href="o-kompanii/">О компании</a>
         </nav>
         <a className="top-cta" href="#contact">Обсудить задачу</a>
       </header>
@@ -121,12 +124,13 @@ export default function Home() {
             <h3>Что достаточно подготовить</h3>
             <ul><li>Главный вопрос или решение.</li><li>Текущий отчёт либо его пример.</li><li>Источники данных.</li><li>Кому и как часто нужен результат.</li></ul>
             <a className="button primary full" href={contactUrl} target="_blank" rel="noopener noreferrer">Обсудить проект в Telegram</a>
+            <ContactLinks className="contact-methods-main" />
             <p className="small-note">Без готового технического задания — начнём с бизнес-задачи.</p>
           </div>
         </section>
       </main>
 
-      <footer className="footer"><span>Avtarkia</span><span>Tailor-made analytics for business</span></footer>
+      <footer className="footer"><span>Avtarkia</span><span><a href="o-kompanii/">О компании</a> · <a href="mailto:info@4vdata.ru">info@4vdata.ru</a></span></footer>
     </>
   );
 }
