@@ -104,7 +104,7 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="contact-box">
-            <img src="../assets/ruslan-gayfutdinov.png" width="1150" height="2560" alt="Руслан Гайфутдинов, FCCA" />
+            <img src="../assets/ruslan-gayfutdinov.png" width="1150" height="2300" alt="Руслан Гайфутдинов, FCCA" />
           </div>
         </section>
 

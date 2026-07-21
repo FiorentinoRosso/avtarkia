@@ -30,7 +30,7 @@ const contactUrls = [
   "https://max.ru/u/f9LHodD0cOLAjqkoKX8pl9Hv4TiIWUYnNJDe6ZqmUyAtlSqjYCbKffk9API",
   "mailto:info@4vdata.ru",
 ];
-const profilePhotoHash = "594A32D335A7E0A1E3DEFD3BAE2F370C99EA4D93AF4F7BD59EE4EA9EDC8DFF5D";
+const profilePhotoHash = "91DE26BA46E58147872B14D606D56CB48934D213FED41A064ED3A10803FA1D41";
 const sha256 = (contents) => createHash("sha256").update(contents).digest("hex").toUpperCase();
 
 test("renders the Avtarkia home page with every contact method", async () => {
@@ -56,7 +56,7 @@ test("renders the about page with the expert profile and source photo", async ()
   assert.match(html, /class="hero"/i);
   assert.match(html, /class="section contact"/i);
   assert.doesNotMatch(html, /class="[^"]*about-/i);
-  assert.match(html, /src="\.\.\/assets\/ruslan-gayfutdinov\.png" width="1150" height="2560"/i);
+  assert.match(html, /src="\.\.\/assets\/ruslan-gayfutdinov\.png" width="1150" height="2300"/i);
   assert.match(html, /profi\.ru\/profile\/GayfutdinovRV/i);
   assert.match(html, /linkedin\.com\/in\/ruslan-gaifutdinov-fcca-670609101/i);
   assert.match(html, /rel="canonical" href="https:\/\/fiorentinorosso\.github\.io\/avtarkia\/o-kompanii\/"/i);
@@ -80,6 +80,7 @@ test("keeps the GitHub Pages export self-contained", async () => {
   assert.match(about, /type="application\/ld\+json"/i);
   assert.match(about, /"@type":"ProfilePage"/i);
   assert.match(css, /\.hero\b/);
+  assert.match(css, /img\s*\{[^}]*height:\s*auto/s);
   assert.equal(sha256(photo), profilePhotoHash);
   assert.doesNotMatch(`${home}${about}`, /__VINEXT|localhost:3000|\uFFFD/i);
   assert.doesNotMatch(home, /<script\b/i);
