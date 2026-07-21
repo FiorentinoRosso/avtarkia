@@ -1,59 +1,11 @@
 const contactUrl = "https://t.me/Nfrtum";
 
-const bars = [
-  [48, 35, 18],
-  [58, 39, 24],
-  [68, 44, 30],
-  [82, 51, 36],
-];
-
-function BarChart() {
-  return (
-    <div className="dashboard-bars" aria-label="Динамика выручки, расходов и прибыли по неделям">
-      {bars.map((week, index) => (
-        <span key={index}>
-          <i className="rev" style={{ "--h": `${week[0]}%` } as React.CSSProperties} />
-          <i className="cost" style={{ "--h": `${week[1]}%` } as React.CSSProperties} />
-          <i className="profit" style={{ "--h": `${week[2]}%` } as React.CSSProperties} />
-          <small>{index + 1} нед.</small>
-        </span>
-      ))}
-    </div>
-  );
-}
-
-function DashboardCard({
-  title,
-  subtitle,
-  kpis,
-  children,
-}: {
-  title: string;
-  subtitle: string;
-  kpis: [string, string][];
-  children: React.ReactNode;
-}) {
-  return (
-    <article className="ref-card ref-chart">
-      <div className="ref-title-row dashboard-title">
-        <span className="ref-avatar" />
-        <span><b>{title}</b><small>{subtitle}</small></span>
-      </div>
-      <div className="mini-kpis">
-        {kpis.map(([label, value]) => <span key={label}><small>{label}</small><b>{value}</b></span>)}
-      </div>
-      {children}
-    </article>
-  );
-}
-
 export default function Home() {
   return (
     <>
       <header className="topbar">
         <a className="brand" href="#top" aria-label="Avtarkia — на главную">
-          <span className="brand-monogram" aria-hidden="true">A</span>
-          <span className="brand-wordmark">Avtarkia</span>
+          <span className="brand-wordmark">AVTARKIA</span>
         </a>
         <nav className="nav" aria-label="Навигация">
           <a href="#approach">Подход</a>
@@ -66,8 +18,10 @@ export default function Home() {
       <main id="top">
         <section className="hero">
           <div className="hero-copy">
+            <p className="hero-wordmark">AVTARKIA</p>
+            <span className="hero-rule" aria-hidden="true" />
             <p className="eyebrow">Tailor-made analytics</p>
-            <h1>Аналитика, собранная под ваш бизнес</h1>
+            <h1>Индивидуальная аналитика для бизнеса</h1>
             <p className="lead">Связываем финансы, продажи и операционные данные в один управленческий контур. Не типовой сервис, а рабочая система под ваши решения.</p>
             <div className="hero-actions">
               <a className="button primary" href="#contact">Разобрать задачу</a>
@@ -79,39 +33,8 @@ export default function Home() {
               <span>Ваша инфраструктура</span>
             </div>
           </div>
-
-          <div className="hero-visual reference-board" aria-label="Пример управленческого кабинета">
-            <article className="ref-card ref-note seller-note">
-              <div className="seller-note-head">
-                <span className="ref-avatar" />
-                <span><b>Контур руководителя</b><small>компания · июль</small></span>
-              </div>
-              <div className="seller-note-list">
-                <span><i className="dot gold" /><b>96%</b><small>план месяца</small></span>
-                <span><i className="dot copper" /><b>15,2%</b><small>маржа</small></span>
-                <span><i className="dot gray" /><b>7</b><small>зон внимания</small></span>
-              </div>
-            </article>
-            <div className="ref-card-row">
-              <DashboardCard title="P&L и план" subtitle="выручка · расходы · результат" kpis={[["Выручка", "48,6 млн ₽"], ["EBITDA", "7,4 млн ₽"], ["План", "96%"]]}>
-                <BarChart />
-                <div className="mini-legend"><span><i className="dot gold" />выручка</span><span><i className="dot copper" />расходы</span><span><i className="dot gray" />результат</span></div>
-              </DashboardCard>
-              <DashboardCard title="Продажи и маржа" subtitle="каналы · продукты · клиенты" kpis={[["Продажи", "+12%"], ["Маржа", "15,2%"], ["Прогноз", "51,1 млн ₽"]]}>
-                <div className="trend-chart" aria-label="Динамика продаж и маржи"><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /></div>
-                <div className="mini-legend"><span><i className="dot gold" />факт</span><span><i className="dot copper" />маржа</span><span><i className="dot gray" />план</span></div>
-              </DashboardCard>
-              <DashboardCard title="Денежный поток" subtitle="остаток · платежи · прогноз" kpis={[["Остаток", "12,8 млн ₽"], ["Входящие", "9,1 млн ₽"], ["Резерв", "4,0 млн ₽"]]}>
-                <div className="donut-layout">
-                  <span className="donut stock-donut" aria-hidden="true"><b>31</b><small>день</small></span>
-                  <div className="stock-list">
-                    <span><b>Операционные</b><small>54%</small><i style={{ "--w": "54%" } as React.CSSProperties} /></span>
-                    <span><b>Инвестиции</b><small>27%</small><i style={{ "--w": "27%" } as React.CSSProperties} /></span>
-                    <span><b>Резерв</b><small>19%</small><i style={{ "--w": "19%" } as React.CSSProperties} /></span>
-                  </div>
-                </div>
-              </DashboardCard>
-            </div>
+          <div className="hero-art" aria-hidden="true">
+            <img src="/og.png" alt="" />
           </div>
         </section>
 
